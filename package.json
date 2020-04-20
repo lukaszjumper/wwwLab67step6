@@ -12,5 +12,13 @@
     "bluebird": "^3.7.2"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaszjumper/wwwLab67step6.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lukaszjumper/wwwLab67step6/issues"
+  },
+  "homepage": "https://github.com/lukaszjumper/wwwLab67step6#readme",
   "description": ""
 }

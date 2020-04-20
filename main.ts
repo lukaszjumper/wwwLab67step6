@@ -4,12 +4,22 @@ let el = document.getElementById("Tecza");
 
 let colors: string[] = ['blue', 'red', 'orange', 'green'];
 
-function delay(x: number, i: number) {
-    el.style.backgroundColor = colors[i];
-    setTimeout(() => delay(x, (i+1) % colors.length), x);
+function delay(time : number) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {resolve("ok")}, time);
+    });
 }
 
-delay(1000, 0);
+async function colorChange() {
+    let i = 0;
+    while (true) {
+       el.style.backgroundColor = colors[i];
+       i = (i+1) % colors.length;
+       await delay(1000);
+    }
+}
+
+colorChange();
 
 // Wyświetlanie danych autora najnowszego commitu w repozytorium
 
@@ -19,7 +29,7 @@ function displayImageFromSrc(src : string) {
 }
 
 function displayRepos(src : string) {
-    fetch(src) 
+    fetch(src)
     .then((resp) => {
         if(resp.ok) {
            return resp.json();
